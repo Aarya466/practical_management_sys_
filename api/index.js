@@ -18,13 +18,11 @@ app.get("/", (req, res)=>{
   })
 })
 dotenv.config();
-const startServer = async () => {
-await dbConnect();
+
+dbConnect();
+
 
 
 app.listen(PORT, () => {
   console.log("Server is running at port:", PORT);
 });
-};
-
-startServer();
