@@ -5,13 +5,18 @@ import router from "../routes/feedbackRoutes.js";
 
 const app = express();
 
-const PORT = 3111;
+const PORT = 4000 || process.env.PORT;
 
 app.use(express.json());
 
 //mounting api routes
 app.use("/api/v1",router)
-
+app.get("/", (req, res)=>{
+  res.json({
+    success: true,
+    message: "Server Running Successfully"
+  })
+})
 dotenv.config();
 const startServer = async () => {
 await dbConnect();
